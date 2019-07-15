@@ -8,9 +8,6 @@ public class Story3Test {
     @Test
     public void park_car_when_not_one_parkingLot() throws  WrongTicketException , UsedTicketException , NoPositionException , NullTicketException{
         //given
-        Car car1 = new Car();
-        Car car2 = new Car();
-        Car car3 = new Car();
         Car car4 = new Car();
         ParkingLot parkingLot1 = new ParkingLot(3);
         ParkingLot parkingLot2 = new ParkingLot(3);
@@ -21,9 +18,9 @@ public class Story3Test {
 
 
         //when
-        boy.parking(car1);
-        boy.parking(car2);
-        boy.parking(car3);
+        boy.parking(new Car());
+        boy.parking(new Car());
+        boy.parking(new Car());
         Ticket ticket = boy.parking(car4);
         Car car = boy.fetching(ticket);
 
