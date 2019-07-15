@@ -8,9 +8,6 @@ public class Story5Test {
     @Test
     public void super_smart_park_car_when_not_one_parkingLot() throws NoPositionException {
         //given
-        Car car1 = new Car();
-        Car car2 = new Car();
-
         ParkingLot parkingLot1 = new ParkingLot(3);
         ParkingLot parkingLot2 = new ParkingLot(5);
         ArrayList<ParkingLot> parkingLots = new ArrayList<>();
@@ -19,8 +16,8 @@ public class Story5Test {
         SuperSmartParkingBoy boy = new SuperSmartParkingBoy(parkingLots);
 
         //when
-        boy.parking(car1);
-        boy.parking(car2);
+        boy.parking(new Car());
+        boy.parking(new Car());
 
         //then
         assertSame(2, parkingLot1.getParkingCapacity());

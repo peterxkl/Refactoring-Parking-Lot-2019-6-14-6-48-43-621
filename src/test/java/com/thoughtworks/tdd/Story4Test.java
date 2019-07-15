@@ -17,11 +17,9 @@ public class Story4Test {
         parkingLots.add(parkingLot2);
         SmartParkingBoy boy = new SmartParkingBoy(parkingLots);
 
-
         //when
         boy.parking(car1);
         boy.parking(car2);
-
 
         //then
         assertSame(2,parkingLot2.getParkingCapacity());//此时每个停车场的最大容量设置为3
