@@ -15,7 +15,7 @@ public class Story2Test {
 
 
         //when
-        Ticket ticket = boy.parking(car);
+        boy.parking(car);
         Ticket ticket1 = new Ticket();
         //Car car_back = boy.fetching(ticket);
         //then
@@ -33,7 +33,7 @@ public class Story2Test {
 
         //when
         Ticket ticket = boy.parking(car);
-        Car car_back = boy.fetching(ticket);
+        boy.fetching(ticket);
 
 
         //then
