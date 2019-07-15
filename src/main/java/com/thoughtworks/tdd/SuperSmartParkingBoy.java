@@ -1,6 +1,5 @@
-import java.util.Collections;
+
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class SuperSmartParkingBoy extends ParkingBoy {
 
@@ -9,15 +8,21 @@ public class SuperSmartParkingBoy extends ParkingBoy {
     }
 
     public Ticket parking(Car car) throws NoPositionException{
-        List<Integer> list = parkingLots.stream().map(x->x.getParkingCapacity()/x.getCapacity()).collect(Collectors.toList());
-        int max = Collections.max(list);
-        for(ParkingLot parkingLot:parkingLots){
-            if(parkingLot.getParkingCapacity() == max){
-                Ticket ticket = parkingLot.park(car);
-                return ticket;
+        ParkingLot selectedParkingLot = parkingLots.get(0);
+        double MaxRate = 0;
+        double rate = 0d;
+        for (ParkingLot parkingLot : parkingLots) {
+            rate = parkingLot.getParkingCapacity() / parkingLot.getCapacity();
+            if (rate > MaxRate) {
+                selectedParkingLot = parkingLot;
+                MaxRate = rate;
             }
         }
-        throw new NoPositionException("No enough position.");
+        if(selectedParkingLot!=null){{
 
+            return selectedParkingLot.park(car);
+        }}else{
+            throw new NoPositionException("No enough position.");
+        }
     }
 }
