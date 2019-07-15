@@ -1,8 +1,8 @@
 
 import java.util.List;
 
-public class ParkingBoy {
-    private List<ParkingLot> parkingLots;
+public class ParkingBoy implements ParkiAndFetch{
+    public List<ParkingLot> parkingLots;
 
     public ParkingBoy(List<ParkingLot> parkingLots) {
         this.parkingLots = parkingLots;
@@ -23,7 +23,7 @@ public class ParkingBoy {
             for(ParkingLot parkingLot:parkingLots){
                 if(parkingLot.getParkingCarTicket().containsKey(ticket)){
                     Car car = parkingLot.fetch(ticket);
-                    return  car;
+                    return car;
                 }
             }
             throw new WrongTicketException("Wrong parking ticket.");
