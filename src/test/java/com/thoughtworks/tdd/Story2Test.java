@@ -13,7 +13,6 @@ public class Story2Test {
         ParkingBoy boy = new ParkingBoy(parkingLots);
         Car car = new Car();
 
-
         //when
         boy.parking(car);
         Ticket ticket1 = new Ticket();
@@ -48,21 +47,15 @@ public class Story2Test {
         parkingLots.add(parkingLot1);
         parkingLots.add(parkingLot2);
         ParkingBoy boy = new ParkingBoy(parkingLots);
-        Car car1 = new Car();
-        Car car2 = new Car();
-        Car car3 = new Car();
-        Car car4 = new Car();
-        Car car5 = new Car();
-        Car car6 = new Car();
         Car car7 = new Car();
 
         //when
-        boy.parking(car1);
-        boy.parking(car2);
-        boy.parking(car3);
-        boy.parking(car4);
-        boy.parking(car5);
-        boy.parking(car6);
+        boy.parking(new Car());
+        boy.parking(new Car());
+        boy.parking(new Car());
+        boy.parking(new Car());
+        boy.parking(new Car());
+        boy.parking(new Car());
 
         //then
         Assertions.assertThrows(NoPositionException.class, ()->boy.parking(car7),"Not enough position.");
